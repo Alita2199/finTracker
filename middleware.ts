@@ -5,6 +5,7 @@ export function middleware(req: NextRequest) {
   const res = NextResponse.next();
 
   // CORS headers for all API responses
+  const allowedOrigin = "https://fintrack-master.vercel.app"; // Only allow this origin in production
   res.headers.set("Access-Control-Allow-Origin", "*"); // Update this to match your frontend domain
   res.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
