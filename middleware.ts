@@ -4,9 +4,8 @@ import { getToken } from "next-auth/jwt"; // Use next-auth's JWT helper
 export function middleware(req: NextRequest) {
   const res = NextResponse.next();
 
-  // CORS headers for all API responses
-  const allowedOrigin = "https://fintrack-master.vercel.app"; // Only allow this origin in production
-  res.headers.set("Access-Control-Allow-Origin", "*"); // Update this to match your frontend domain
+  const allowedOrigin = "https://fintrack-master.vercel.app";
+  res.headers.set("Access-Control-Allow-Origin", allowedOrigin); // Update this to match your frontend domain
   res.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
@@ -15,7 +14,7 @@ export function middleware(req: NextRequest) {
     return new NextResponse(null, {
       status: 204, // No content
       headers: {
-        "Access-Control-Allow-Origin": "*", // Update this to your domain
+        "Access-Control-Allow-Origin": allowedOrigin,
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, Authorization",
       },
