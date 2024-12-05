@@ -129,7 +129,7 @@ function EditCategoryForm({ category, onSubmitSuccess }: Props) {
                 </FormLabel>
                 <FormControl>
                   <div className="relative flex items-center">
-                    <span className="absolute ml-2">Rp</span>
+                    <span className="absolute ml-2">$</span>
                     <Input
                       type="number"
                       {...field}
