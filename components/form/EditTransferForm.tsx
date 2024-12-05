@@ -285,7 +285,7 @@ function EditTransferForm({ activity, onSubmitSuccess }: Props) {
                 <FormLabel>Amount</FormLabel>
                 <FormControl>
                   <div className="relative flex items-center">
-                    <span className="absolute ml-2">Rp</span>
+                    <span className="absolute ml-2">$</span>
                     <Input
                       {...field}
                       type="number"
