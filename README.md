@@ -1,6 +1,4 @@
-Here’s a polished version of your README formatted for GitHub, with proper Markdown and styling:
 
----
 
 # Finance Tracker Web Application 📊💰
 
