@@ -24,25 +24,3 @@
 
 --- 
 
-=======
-
-# FinTrackerer
-
-Seamless financial management with Next.js-powered finance tracker. Track expenses, manage accounts, and optimize your finances effortlessly.
-
-## Features
-- Customize View
-- Visualize Your Finances
-- Manage Your Accounts
-- Monitor Your Cash Flow
-- Track Fund Movements
-- Categorize Spending
-
-
-
-## Tech Stacks
-- Next.js
-- Typescript
-- MongoDB
-- NextAuth
->>>>>>> b53eb47 (Initial commit with fintrack-master folder)
