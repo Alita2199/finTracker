@@ -109,4 +109,4 @@ This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE)
 
 ---
 
-Feel free to customize the URLs and placeholders before uploading this to GitHub!
+
