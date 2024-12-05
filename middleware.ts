@@ -3,16 +3,17 @@ import { getToken } from "next-auth/jwt"; // Use next-auth's JWT helper
 
 export function middleware(req: NextRequest) {
   const res = NextResponse.next();
+  const allowedOrigin = "https://fintrack-master-313loso6j-keshas-projects-2f7b5e82.vercel.app";
 
-  // Log the CORS headers for debugging purposes
+  // Log headers for debugging
+  console.log('Request headers:', req.headers);
   console.log('CORS headers set:', {
-    'Access-Control-Allow-Origin': 'https://fintrack-master-313loso6j-keshas-projects-2f7b5e82.vercel.app', // Specify the allowed frontend origin
+    'Access-Control-Allow-Origin': allowedOrigin,
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   });
 
-  // Set CORS headers
-  res.headers.set("Access-Control-Allow-Origin", "https://fintrack-master-313loso6j-keshas-projects-2f7b5e82.vercel.app");
+  res.headers.set("Access-Control-Allow-Origin", allowedOrigin);
   res.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
@@ -21,24 +22,22 @@ export function middleware(req: NextRequest) {
     return new NextResponse(null, {
       status: 204, // No content
       headers: {
-        "Access-Control-Allow-Origin": "https://fintrack-master-313loso6j-keshas-projects-2f7b5e82.vercel.app",
+        "Access-Control-Allow-Origin": allowedOrigin,
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, Authorization",
       },
     });
   }
 
-  // JWT Authentication check
   const token = getToken({ req });
-
   if (!token) {
+    console.log('Unauthorized request');
     return new NextResponse("Unauthorized", { status: 401 });
   }
 
-  return res; // Continue with the request if authenticated
+  return res; // Continue if authenticated
 }
 
-// Specify which routes to apply this middleware to
 export const config = {
   matcher: [
     "/dashboard",
